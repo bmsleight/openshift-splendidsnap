@@ -1,0 +1,34 @@
+{% extends 'base.html' %} 
+
+{% load bootstrap3 %}
+
+{% block title %}
+   - Make your own pack of SplendidSnap cards
+{% endblock %}
+
+{% block content %}
+<h3>Unqiue symbols</h3>
+<p>To make a pack we need to have unqiue symbols. A symbol can be made from a word, a group of words or an image. For example:-<br/>
+ A list of 4 word or words: Merci, S'il vous plaît, Au revoir, Ça va?\nHow are you <br/>
+ Images can be saved in a <a href='https://duckduckgo.com/?q=zip+file'>zip file</a> and then uploaded. 
+</p>
+
+
+<h3> How Many Unqiue symbols</h3>
+<p>Unique symbols needed depends upon how many symbols per card you wish to have in your pack.</p> 
+<ul>
+  <li>3 symbols per cards, a total of 7 or more unique symbols are needed</li>
+  <li>4 symbols per cards, a total of 13 or more unique symbols are needed</li>
+  <li>5 symbols per cards, a total of 21 or more unique symbols are needed</li>
+  <li>6 symbols per cards, a total of 31 or more unique symbols are needed</li>
+  <li>7 symbols per cards, a total of 43 or more unique symbols are needed</li>
+  <li>8 symbols per cards, a total of 57 or more unique symbols are needed</li>
+</ul>
+<h3>Enter your pack details</h3>
+    <form role="form" class="form-horizontal" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form layout="horizontal" %}
+        {% buttons submit='OK' reset='Cancel' layout='horizontal' %}{% endbuttons %}
+    </form>
+
+{% endblock %}

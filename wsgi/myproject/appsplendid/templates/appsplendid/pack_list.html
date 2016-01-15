@@ -1,0 +1,63 @@
+{% extends 'base.html' %} 
+
+{% block title %} - Packs{% endblock %}
+
+{% block content %}
+
+{% for pack in packs %}
+    <div>
+        <h3>{{ pack }}</h3>
+        {% if pack.pair_image %}
+            <p>Two cards from the pack, can you find the match ?</p>
+            <img src='{{ media_url }}{{ pack.pair_image }}'>
+            <p><a href='{{ media_url }}{{pack.pdf}}'>Download the whole pack as a pdf (Warning large file)</a>
+            <p> The pack with {{pack.images_per_card}} images per card generated using:-</p>
+            <ul>
+            {% if pack.words %}
+                <li>words:</li>
+                <ul>
+                    <li>{{ pack.words }}</li>
+                </ul>
+            {% endif %}
+            {% if pack.image_zip_file %}
+                <li>Images:</li>
+                <ul>
+                    <li><a href='{{ media_url }}{{pack.image_zip_file}}'>{{ pack.image_zip_file }}</a></li>
+                </ul>
+            {% endif %}
+            {% if pack.source_of_images %}
+                <li>Source of images:</li>
+                <ul>
+                    <li>{{ pack.source_of_images }}</li>
+                </ul>
+            {% endif %}
+            </ul>
+ 
+        {% else %} 
+            <p>Pack not yet ready, it is being generated<p>
+            <p>Will tweet from <a href='https://twitter.com/splendidsnap'>@splendidsnap</a> to <a href='https://twitter.com/{{ pack.creator }}'>@{{ pack.creator }}</a> when it is ready.</p>
+            
+        {% endif %}
+        <p></p>
+    </div>
+<hr/>
+{% endfor %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if packs.has_previous %}
+            <a href="?page={{ packs.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ packs.number }} of {{ packs.paginator.num_pages }}.
+        </span>
+
+        {% if packs.has_next %}
+            <a href="?page={{ packs.next_page_number }}">next (Many more packs)</a>
+        {% endif %}
+    </span>
+</div>
+
+{% endblock %}
+
