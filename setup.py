@@ -18,7 +18,10 @@ setup(
     # GETTING-STARTED: define required django version:
     install_requires=[
         'Django==1.8.4',
-        'django-bootstrap3'
+        'django-bootstrap3',
+        'reportlab',
+        'tweepy',
+        'Wand',
     ],
     dependency_links=[
         'https://pypi.python.org/simple/django/'
