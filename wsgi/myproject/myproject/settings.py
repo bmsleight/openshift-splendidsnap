@@ -120,5 +120,5 @@ STATIC_ROOT = os.path.join(WSGI_DIR, 'static')
 SITE_ID = 1
 
 MEDIA_URL = '/media/'
-STATIC_ROOT = os.path.join(WSGI_DIR, 'media')
+MEDIA_ROOT = os.path.join(WSGI_DIR, 'media')
 
