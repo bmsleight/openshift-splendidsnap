@@ -29,7 +29,7 @@ class Command(BaseCommand):
             text_images = []
             image_zip_name = ""
             if pack.words:
-                texts = pack.words.encode('utf-8').strip().split(',')
+                texts = pack.words.strip().split(',')
                 texts = filter(None, texts)
                 text_images = _libspendidsnap.list_of_images_from_text(texts)
                 images = text_images
