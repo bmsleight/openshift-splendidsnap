@@ -15,6 +15,11 @@ BASE_DIR = os.path.dirname(DJ_PROJECT_DIR)
 WSGI_DIR = os.path.dirname(BASE_DIR)
 REPO_DIR = os.path.dirname(WSGI_DIR)
 DATA_DIR = os.environ.get('OPENSHIFT_DATA_DIR', BASE_DIR)
+DEPLOY_DIR = os.environ.get('OPENSHIFT_DEPLOYMENTS_DIR', "")
+if DEPLOY_DIR:
+    MEDIA_ROOT = DEPLOY_DIR + "/current/repo/wsgi/media/"
+else:
+    MEDIA_ROOT = os.path.join(WSGI_DIR, 'media')
 
 import sys
 sys.path.append(os.path.join(REPO_DIR, 'libs'))
@@ -120,5 +125,5 @@ STATIC_ROOT = os.path.join(WSGI_DIR, 'static')
 SITE_ID = 1
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(WSGI_DIR, 'media')
+
 
