@@ -350,7 +350,7 @@ The person to win is the one who manages to get rid of all of their cards first.
     h_from_top = simple_text_wrap(canvas, h_from_top, "<u>Pack Details</u>", normal)
     h_from_top = simple_text_wrap(canvas, h_from_top, "Pack name: " + pack_name + " with " + str(images_per_card) + " images per card", config)
     if word_list:
-        using = "Using word list of " + str(word_list).decode('unicode_escape')
+        using = "Using word list of " + str(word_list)
         h_from_top = simple_text_wrap(canvas, h_from_top, using, config)
     if image_zip_name:
         using = "Using images in zip file: " + image_zip_name
